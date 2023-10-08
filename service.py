@@ -1,16 +1,17 @@
 from flask import Flask, request, jsonify
 from storage import Filesystem, UserFile, SkFile, MsgFile
 app = Flask(__name__)
-filesystem = Filesystem("keystore.dat", "msgstore.dat", "users.dat")
+
+filesystem = Filesystem("keystore.dat", "msgstore.dat", "userstore.dat")
 filesystem.initialise()
 
 @app.route('/get/account/<account>', methods=['GET'])
 def get_messages(account):
     msgfile = MsgFile(filesystem)
     messages = msgfile.get_messages_by_recipient(account)
-    return jsonify({
+    return jsonify(
         messages
-    })
+    )
 
 @app.route('/get/user/<id>', methods=['GET'])
 def get_user(id):

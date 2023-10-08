@@ -34,10 +34,7 @@ class UserFile:
     def get_user(self, id):
         with open(self.filesystem.users, 'rb') as userstore:
             data = pickle.load(userstore)
-            for user in data:
-                if user == id:
-                    return data[id]
-        return None
+            return data[int(id)]
     
     def next_id(self):
         try:
@@ -83,7 +80,9 @@ class MsgFile:
             with open(self.filesystem.msgstore, 'rb') as msgstore:
                 data = pickle.load(msgstore)
                 for message in data.values():
-                    if message[1] == recipient:
+                    print("MESSAGE: ", message)
+                    if str(message[1]) == recipient:
+                        print("IS EQUAL!")
                         messages.append(message)
         except Exception as e:
             return []
