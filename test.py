@@ -1,5 +1,4 @@
-from crypto import Key, Cryptography
-from secret import SharedSecret
+from crypto import Key, Cryptography, SharedSecret
 from Crypto.Random import get_random_bytes
 from hashlib import sha256
 from constants import p, g
