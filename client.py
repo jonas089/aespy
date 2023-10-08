@@ -1,0 +1,6 @@
+import request
+
+class MsgClient:
+    def __init__(self, host, port):
+        self.host = host
+        self.port = port
