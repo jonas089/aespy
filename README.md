@@ -66,18 +66,18 @@ To submit a message to the `service`, run it on localhost:
 python3 service.py
 ```
 
-and use the `client` to submit it to a public filestore:
-
-```python
-MsgClient.put_message(
-    ...
-)
-```
-
 Before submitting an encrypted message to the filestore, make sure both the sender and user are registered:
 
 ```python
 MsgClient.register(
+    ...
+)
+```
+
+Use the `client` to submit the message to a public filestore:
+
+```python
+MsgClient.put_message(
     ...
 )
 ```
