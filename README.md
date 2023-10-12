@@ -95,7 +95,7 @@ The sender is part of the message data, as well as the iv bytes used for encrypt
 To decrypt the message:
 
 ```python
-    decrypted_msg = cryptography.decrypt(stored_message, base64.b64decode(msg[3]))
+    decrypted_msg = cryptography.decrypt(stored_message, iv)
     pad_length = decrypted_msg[-1]
     unpadded_message = decrypted_msg[:-pad_length]
 ```
