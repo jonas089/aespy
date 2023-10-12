@@ -24,7 +24,7 @@ def get_user(id):
 def put_message():
     data = request.get_json()
     msgfile = MsgFile(filesystem)
-    msgfile.store_msg(data["id"], data["message"], data["recipient"], data["sender"])
+    msgfile.store_msg(data["id"], data["message"], data["recipient"], data["sender"], data["iv"])
     return jsonify(
         "[Debug] Message received."
     )

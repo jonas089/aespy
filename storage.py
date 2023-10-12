@@ -61,12 +61,12 @@ class MsgFile:
     def __init__(self, filesystem):
         self.filesystem = filesystem
 
-    def store_msg(self, id, msg, recipient, sender):
+    def store_msg(self, id, msg, recipient, sender, iv):
         data = None
         try:
             with open(self.filesystem.msgstore, 'rb') as msgstore:
                 data = pickle.load(msgstore)
-                data[id] = (msg, recipient, sender)
+                data[id] = (msg, recipient, sender, iv)
         except Exception as empty:
             data = {
                 id: (msg, recipient)

@@ -12,12 +12,13 @@ class MsgClient:
             "publickey":publickey
         }), headers=self.headers).json()
     
-    def put_message(self, id, message, recipient, sender):
+    def put_message(self, id, message, recipient, sender, iv):
         return requests.post((self.url+'/put'), data=json.dumps({
-            "id":id,
-            "message":message,
-            "recipient":recipient,
-            "sender":sender
+            "id": id,
+            "message": message,
+            "recipient": recipient,
+            "sender": sender,
+            "iv": iv
         }), headers=self.headers)
 
     def get_user(self, id):
