@@ -69,7 +69,7 @@ class MsgFile:
                 data[id] = (msg, recipient, sender, iv)
         except Exception as empty:
             data = {
-                id: (msg, recipient)
+                id: (msg, recipient, sender, iv)
             }
         with open(self.filesystem.msgstore, 'wb') as msgstore:
             pickle.dump(data, msgstore)

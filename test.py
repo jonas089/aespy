@@ -2,7 +2,7 @@ from crypto import Key, Cryptography, SharedSecret
 from Crypto.Random import get_random_bytes
 from hashlib import sha256
 from constants import p, g
-import os, ast, base64
+import os, ast, base64, time
 
 def test_encrypt():
     dh = SharedSecret(p, g)
@@ -104,7 +104,7 @@ def test_client():
         base64.b64encode(iv).decode('utf-8')
     )
 
-    print(msgclient.put_message(_message))
+    print(msgclient.put_message(_message).text)
     msg = msgclient.get_messages(bob_pk)[0]
     stored_message = ast.literal_eval(msg[0])
     decrypted_msg = cryptography.decrypt(stored_message, base64.b64decode(msg[3]))
