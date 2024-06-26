@@ -2,7 +2,7 @@ Exercise project - Diffie Hellman / secure peer-to-peer messaging
 
 # CLI EXAMPLE
 
-⚠️ No safety guarantees, no `true randomness`, python code, proceed with `caution`!
+⚠️ No safety guarantees, not production ready, python code, proceed with `caution`!
 
 Assume a message exchange between two parties "Alice" and "Bob".
 
